@@ -236,16 +236,7 @@ CONFIG_LIB_PANIC_NONE=y
 # Data transfer protocols
 #
 # CONFIG_LIB_XMODEM is not set
-CONFIG_LIB_DELAY_AVR=y
-CONFIG_LIB_DELAY=y
-
-#
-# Nothing to tune for AVR, everything should work out of the box
-#
-
-#
-# Nothing to tune for ARM, everything should work out of the box
-#
+# CONFIG_LIB_DELAY is not set
 # CONFIG_LIB_STLINKY is not set
 # CONFIG_LIB_URPC is not set
 
