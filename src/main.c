@@ -3,42 +3,23 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
-#include <generated/usbconfig.h>
-#include <arch/vusb/usbportability.h>
-#include <arch/vusb/usbdrv.h>
 
-uchar   usbFunctionSetup(uchar data[8])
-{
-	usbRequest_t    *rq = (void *)data;
-	return 0;
+
+ANTARES_INITCALL_LOW(io_init) {
+	// Set up all the pins.
+		
 }
 
-uchar usbFunctionWrite(uchar *data, uchar len)
-{
-
+ANTARES_INITCALL_LOW(serial_init) {
+	DEPENDS(io_init);
+	do_serial_init();
 }
 
-inline void usbReconnect()
-{
-	DDRD=0xff;
-	_delay_ms(250);
-	DDRD=0;
+ANTARES_INITCALL_HIGH(bc127_init) {
+	do_bc127_init();
 }
 
-ANTARES_INIT_LOW(io_init)
-{
-	DDRC=1<<2;
-	PORTC=0xff;
- 	usbReconnect();
-}
-
-ANTARES_INIT_HIGH(uinit)
-{
-  	usbInit();
-}
-
-
-ANTARES_APP(usb_app)
-{
-	usbPoll();
+ANTARES_APP(cochlea_mainloop) {
+	while (1) { // Main loop
+	}
 }
