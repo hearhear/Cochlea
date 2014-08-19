@@ -6,7 +6,7 @@
 
 ANTARES_INITCALL_LOW(io_init) {
 	// Set up all the pins.
-
+	
 }
 
 ANTARES_INITCALL_HIGH(bc127_init) {
