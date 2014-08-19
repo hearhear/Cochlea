@@ -2,7 +2,7 @@
 #define BC127_h
 
 #include "smallserial.h"
-#include "bc127.h"
+#include <util/setbaud.h>
 
 class BC127 {
 public:
